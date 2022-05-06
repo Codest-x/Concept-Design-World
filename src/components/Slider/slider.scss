@@ -1,0 +1,109 @@
+@use '../../vars.scss' as v;
+
+.places__section {
+  width: 100%;
+  height: 100%;
+  background-color: v.$accent-color;
+  position: relative;
+
+  .places__slider {
+    width: 70%;
+    max-height: 880px;
+    margin: 0px auto;
+    position: relative;
+    padding: 100px 0px;
+
+    .places__sliderinner {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+
+    .places__img {
+      width: 100%;
+      height: 900px;
+      filter: brightness(0.6);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: background-image 0.5s ease-in-out;
+    }
+
+    .places__names {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      gap: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      padding: 20px;
+      width: 50%;
+      max-height: 100%;
+      color: v.$tertiary-color;
+      cursor: crosshair;
+
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+
+      .place__item {
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 10px;
+        display: flex;
+        transition: all 0.5s;
+
+        &:hover {
+          transform: translateX(-50px);
+        }
+
+        .place__title {
+          margin: 0;
+          font-family: Getaway, sans-serif;
+          font-size: 64px;
+          text-align: right;
+        }
+
+        .place__description {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .places__section {
+    .places__slider {
+      width: 90%;
+      max-height: 720px;
+
+      .places__sliderinner {
+        .places__img {
+          height: 720px;
+        }
+      }
+
+      .places__names {
+        width: 80%;
+        top: 40%;
+        transform: translateY(-60%);
+
+        .place__item {
+          .place__title {
+            margin: 0;
+            font-size: 34px;
+          }
+        }
+      }
+    }
+  }
+}
