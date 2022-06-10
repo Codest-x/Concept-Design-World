@@ -14,6 +14,7 @@ import {
 } from '../../utilities/contents'
 import Slider from '../../components/Slider/slider'
 import PropTypes from 'prop-types'
+import Contact from '../../components/Contact/contact'
 
 const titlevars = {
   visible: (i) => ({
@@ -164,6 +165,7 @@ export default function Home({ subtitle, language }) {
         places={beautifulplaces}
         placesES={beautifulplacesES}
       />
+      <Contact />
     </>
   )
 }
