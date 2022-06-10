@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import './navigation.scss'
 import PropTypes from 'prop-types'
 
 export default function Navigation({ language }) {
   const [active, setActive] = useState(false)
+  const { pathname } = useLocation()
   const handleMenuClick = () => {
     setActive(!active)
   }
@@ -17,11 +18,11 @@ export default function Navigation({ language }) {
     },
     {
       title: language === 'en' ? 'Explore' : 'Explorar',
-      path: '/explore'
+      path: '#'
     },
     {
       title: language === 'en' ? 'About Creator' : 'Creador',
-      path: '/creator'
+      path: '#'
     }
   ]
 
@@ -38,7 +39,7 @@ export default function Navigation({ language }) {
               transition: { duration: i * 0.2 }
             }}
             key={link.title}
-            className={link.path === window.location.pathname ? 'active' : ''}
+            className={link.path === pathname ? 'active' : ''}
           >
             <Link to={link.path}>{link.title}</Link>
           </motion.li>
